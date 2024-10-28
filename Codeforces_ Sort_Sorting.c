@@ -1,29 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    int cnt[26] = {0};
+    getchar();
 
-void bubbleSort(char str[], int n) {
-    int i, j;
-    char temp;
-    for (i = 0; i < n - 1; i++) {
-        for (j = 0; j < n - i - 1; j++) {
-            if (str[j] > str[j + 1]) {
-                
-                temp = str[j];
-                str[j] = str[j + 1];
-                str[j + 1] = temp;
-            }
+    for (int i = 0; i < n; i++)
+    {
+        char ch = getchar();
+        cnt[ch - 'a']++;
+    }
+    for (int i = 0; i < 26; i++)
+    {
+        for (int j = 0; j < cnt[i]; j++)
+        {
+            putchar(i + 'a');
         }
     }
-}
-
-int main() {
-    int N;
-    scanf("%d", &N); 
-    char S[N + 1]; 
-
-    scanf("%s", S); 
-
-    bubbleSort(S, N);
-    printf("%s\n", S);
-
+    putchar('\n');
     return 0;
 }
